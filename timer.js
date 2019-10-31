@@ -3,17 +3,20 @@ import Countdown from 'react-countdown-now';
 
 class Timer extends React.Component{
     render(){
-        let startStop=true
+        this.state={
+            startStop: false,
+        }
+        const {startStop} = this.state;
         return(
             <div>
 
                 <Countdown 
                 date={Date.now() + 10000}
-                autoStart={this.props.startStop}
+                autoStart={startStop}
                 /> 
 
-                <button onClick = {()=>{}}>
-                    Start
+                <button onClick = { () => {this.setState({startStop:true})} }>
+                    Start/Stop
                 </button>
             </div>
             )
